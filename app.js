@@ -3,7 +3,7 @@ const bodyParser=require("body-parser");
 const ejs=require("ejs");
 const mongoose=require("mongoose");
 const app=express();
-const port=process.env.PORT || 3000;
+const port=process.env.PORT || 4000;
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
@@ -42,7 +42,7 @@ app.route("/books/:bookName")
         if(foundBook){
             res.send(foundBook)
         }else{
-            res.send(err)
+            res.send(err) 
         }
     })
 })
@@ -70,6 +70,6 @@ res.send("successfully updated")
             }
         })
 })
-app.listen(4000,function(){
+app.listen(port,function(){
     console.log("server at 4000");
 })
